@@ -18,3 +18,5 @@ app_theme <- bs_theme(
 format_points <- function(points) {
   paste0(points, " pts")
 }
+
+# Streak multiplier only starts having effect after 1st flip

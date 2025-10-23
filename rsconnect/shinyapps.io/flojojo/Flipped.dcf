@@ -1,0 +1,12 @@
+name: Flipped
+title: Flipped
+username: flojojo
+account: flojojo
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 15846944
+bundleId: 11074515
+url: https://flojojo.shinyapps.io/Flipped/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

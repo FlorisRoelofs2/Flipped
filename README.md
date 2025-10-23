@@ -1,5 +1,5 @@
 # Flipped
-Flipped shiny game!!
+Flipped shiny game
 
 To merge f/add-app to main:
 
@@ -14,3 +14,6 @@ git branch origin -d f/add-app
 
 # Delete remote branch
 git push origin -d f/add-app
+
+# Git token
+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

@@ -1,0 +1,12 @@
+name: Unfair-Flips
+title: Unfair-Flips
+username: flojojo
+account: flojojo
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 15835478
+bundleId: 11074521
+url: https://flojojo.shinyapps.io/Unfair-Flips/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

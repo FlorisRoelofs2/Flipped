@@ -1,5 +1,3 @@
-# server.R
-
 server <- function(input, output, session) {
   rv <- reactiveValues(
     points = 0,
@@ -21,13 +19,33 @@ server <- function(input, output, session) {
     cost_streak_multiplier = 3
   )
   
-  # Kosten teksten
+  # ---- Current Status ----
+  output$currentStatus <- renderUI({
+    tags$div(paste0("Streak: ", rv$streak, " | Points: ", rv$points))
+  })
+  
+  # ---- Upgrades UI ----
+  output$upgradeUI <- renderUI({
+    tagList(
+      fluidRow(
+        column(12, actionButton("upgradeLuck", "⭐ Increase Head Chance (+5%)", class="upgrade-btn btn-success")),
+        column(12, textOutput("costLuck")),
+        column(12, actionButton("upgradeSpeed", "⚡ Decrease Flip Time (-0.2s)", class="upgrade-btn btn-info")),
+        column(12, textOutput("costSpeed")),
+        column(12, actionButton("upgradeReward", "💰 Increase Reward (+1)", class="upgrade-btn btn-warning")),
+        column(12, textOutput("costReward")),
+        column(12, actionButton("upgradeMultiplier", "📈 Streak Multiplier (+0.2×)", class="upgrade-btn btn-secondary")),
+        column(12, textOutput("costMultiplier"))
+      )
+    )
+  })
+  
   output$costLuck <- renderText({ paste("Cost:", rv$cost_increase_heads, "pts") })
   output$costSpeed <- renderText({ paste("Cost:", rv$cost_faster_flip, "pts") })
   output$costReward <- renderText({ paste("Cost:", rv$cost_extra_points, "pts") })
   output$costMultiplier <- renderText({ paste("Cost:", rv$cost_streak_multiplier, "pts") })
   
-  # Timer update
+  # Timer
   observe({ invalidateLater(1000, session); 
     if (!rv$won && !is.null(rv$startTime)) rv$timeElapsed <- as.numeric(difftime(Sys.time(), rv$startTime, units="secs")) 
   })
@@ -105,7 +123,7 @@ server <- function(input, output, session) {
     }
   })
   
-  # Reset game
+  # Reset
   observeEvent(input$reset, {
     rv$points <- 0; rv$headChance <- 0.20; rv$flipDelay <- 2.0; rv$reward <- 1; rv$streakMultiplier <- 1.0
     rv$flipping <- FALSE; rv$lastResult <- ""; rv$log <- character(); rv$streak <- 0; rv$won <- FALSE
@@ -113,7 +131,7 @@ server <- function(input, output, session) {
     rv$cost_increase_heads <- 1; rv$cost_faster_flip <- 2; rv$cost_extra_points <- 3; rv$cost_streak_multiplier <- 3
   })
   
-  # Stats Table
+  # Stats
   output$statsTable <- renderTable({
     data.frame(
       Metric = c("Points", "Head Chance", "Flip Delay", "Reward per Head", "Streak Multiplier", "Flips Made", "Time Elapsed"),
@@ -134,9 +152,6 @@ server <- function(input, output, session) {
     if (length(rv$log) == 0) return("No flips yet.")
     cat(rev(rv$log), sep = "\n")
   })
-  
-  
-  output$result <- renderText(rv$lastResult)
   
   # Streak bar
   output$streakBar <- renderUI({

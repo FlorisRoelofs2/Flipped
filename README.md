@@ -1,23 +1,25 @@
 # Flipped
 Flipped shiny game
 
-repo:
+# --- General info --- #
+
+# repo:
 https://github.com/FlorisRoelofs2/Flipped
 
-To merge f/add-app to main:
+# Git token secret:
+check bestand 'tokens.rtf' op prive laptop
+
+# --- merge branches to main --- #
 
 # Make sure you're on main
 git checkout main
 
 # Merge the feature branch
-git merge origin f/add-app
+git merge origin branch_name
 
 # Delete local branch
-git branch origin -d f/add-app
-git branch -d f/add-app
+git branch origin -d branch_name
+git branch -d branch_name
 
 # Delete remote branch
-git push origin -d f/add-app
-
-# Git token secret
-check bestand 'tokens.rtf' op prive laptop
+git push origin -d branch_name

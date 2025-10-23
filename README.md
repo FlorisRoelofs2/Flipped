@@ -15,5 +15,5 @@ git branch origin -d f/add-app
 # Delete remote branch
 git push origin -d f/add-app
 
-# Git token
+# Git token secret
 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

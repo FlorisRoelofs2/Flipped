@@ -11,3 +11,6 @@ git merge origin feature/increase-mult-value
 
 # Delete local branch
 git branch origin -d f/add-app
+
+# Delete remote branch
+git push origin -d f/add-app

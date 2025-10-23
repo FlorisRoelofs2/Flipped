@@ -60,7 +60,7 @@ ui <- dashboardPage(
       tabItem(
         tabName = "play",
         fluidRow(
-          # Left column: game controls
+          # Left column: game controls & stats
           column(width = 6,
                  box(width = NULL, title = "Game Controls", status = "primary", solidHeader = TRUE,
                      actionButton("flip", "Flip Coin", class = "btn-primary btn-lg"),
@@ -74,17 +74,17 @@ ui <- dashboardPage(
                  ),
                  box(width = NULL, title = "Stats", status = "info", solidHeader = TRUE,
                      tableOutput("statsTable")
+                 )
+          ),
+          
+          # Right column: Upgrades & log
+          column(width = 6,
+                 box(width = NULL, title = "Upgrades", status = "success", solidHeader = TRUE,
+                     uiOutput("upgradeUI")
                  ),
                  box(width = NULL, title = "Flip Log", status = "warning", solidHeader = TRUE,
                      tags$div(style = "height:200px; overflow-y:scroll; background:#f8f9fa; padding:10px; border:1px solid #ddd;",
                               verbatimTextOutput("log"))
-                 )
-          ),
-          
-          # Right column: Upgrades
-          column(width = 6,
-                 box(width = NULL, title = "Upgrades", status = "success", solidHeader = TRUE,
-                     uiOutput("upgradeUI")
                  )
           )
         )

@@ -28,13 +28,13 @@ server <- function(input, output, session) {
   output$upgradeUI <- renderUI({
     tagList(
       fluidRow(
-        column(12, actionButton("upgradeLuck", "⭐ Increase Head Chance (+5%)", class="upgrade-btn btn-success")),
+        column(12, actionButton("upgradeLuck", "⭐ Increase Head Chance (+5%)", style = "color: #fff; background-color: #4CAF50; border-color: #388E3C")),
         column(12, textOutput("costLuck")),
-        column(12, actionButton("upgradeSpeed", "⚡ Decrease Flip Time (-0.2s)", class="upgrade-btn btn-info")),
+        column(12, actionButton("upgradeSpeed", "⚡ Decrease Flip Time (-0.2s)", style = "color: #fff; background-color: #2196F3; border-color: #1976D2")),
         column(12, textOutput("costSpeed")),
-        column(12, actionButton("upgradeReward", "💰 Increase Reward (+1)", class="upgrade-btn btn-warning")),
+        column(12, actionButton("upgradeReward", "💰 Increase Reward (+1)", style = "color: #fff; background-color: #FF9800; border-color: #F57C00")),
         column(12, textOutput("costReward")),
-        column(12, actionButton("upgradeMultiplier", "📈 Streak Multiplier (+0.2×)", class="upgrade-btn btn-secondary")),
+        column(12, actionButton("upgradeMultiplier", "📈 Streak Multiplier (+0.2×)", style = "color: #fff; background-color: #9C27B0; border-color: #7B1FA2")),
         column(12, textOutput("costMultiplier"))
       )
     )

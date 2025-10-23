@@ -1,2 +1,13 @@
 # Flipped
 Flipped shiny game!!
+
+To merge f/add-app to main:
+
+# Make sure you're on main
+git checkout main
+
+# Merge the feature branch
+git merge origin feature/increase-mult-value
+
+# Delete local branch
+git branch origin -d f/add-app

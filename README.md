@@ -16,4 +16,4 @@ git branch origin -d f/add-app
 git push origin -d f/add-app
 
 # Git token secret
-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
+check bestand 'tokens.rtf' op prive laptop
